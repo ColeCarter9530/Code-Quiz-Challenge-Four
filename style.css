@@ -10,7 +10,7 @@ body{
 }
 
 .app{
-    background: white;
+    background: rgb(87, 83, 83);
     width: 90%;
     max-width: 600px;
     margin: 100px auto 0;
@@ -40,7 +40,7 @@ body{
     color: black;
     font-weight: 500;
     width: 100%;
-    border: 2px solid gray;
+    border: 2px solid rgb(27, 27, 27);
     padding: 10px;
     margin: 5px 0;
     text-align: left;
@@ -48,9 +48,22 @@ body{
     cursor: pointer;
     transition: all 0.5s;
 }
-.btn:hover {
-    background: gray;
+
+#timer {
+    font-size: 45px;
     color: white;
+    font-weight: 600;
+    padding: 35px;
+    text-align: center;
+    
+}
+
+.btn:hover:not([disabled]) {
+    background: rgb(22, 22, 22);
+    color: white;
+}
+.btn:disabled {
+    cursor: no-drop;
 }
 
 #next-btn {
@@ -64,4 +77,11 @@ body{
     border-radius: 10px;
     cursor: pointer;
     display: none;
+}
+.correct{
+    background: green;
+}
+
+.incorrect {
+    background: red;
 }
