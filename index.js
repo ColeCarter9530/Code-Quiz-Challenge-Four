@@ -20,9 +20,9 @@ const questions = [
     {
         question: "How do you link your JavaScript file to your html?",
         answers: [
-            { text: "Using a <link> tag", correct: false},
-            { text: "Using a <h1> tag", correct: false},
-            { text: "Using a <script> tag", correct: true},
+            { text: "Using a link tag", correct: false},
+            { text: "Using an h1 tag", correct: false},
+            { text: "Using a script tag", correct: true},
             { text: "You dont have to link them", correct: false}
         ]
     },
@@ -59,7 +59,7 @@ function showQuestion() {
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
-        button.innerhtml = answer.text;
+        button.innerHTML = answer.text;
         button.classList.add("btn");
         answerButtons.appendChild(button);
         if(answer.correct){
@@ -81,10 +81,10 @@ function selectAnswer(e){
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
     if(isCorrect){
-        selectedBtn.classlist.add("correct");
-        score++;
+        // selectedBtn.classlist.add("correct");
+        // score++;
     } else{
-        selectedBtn.classlist.add("incorrect");
+        // selectedBtn.classlist.add("incorrect");
     }
     Array.from(answerButtons.children).forEach(button => {
         if(button.dataset.correct === "true"){
@@ -95,19 +95,12 @@ function selectAnswer(e){
     nextButton.style.display = "block";
 }
 
-function showScore() {
-    resetState();
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
-    nextButton.innerHTML = "Play Again";
-    nextButton.style.display = "block";
-}
-
 function handleNextButton() {
     currentQuestionIndex++;
     if(currentQuestionIndex < questions.length){
         showQuestion();
     } else {
-        showScore();
+        // showScore();
     }
 }
 
@@ -121,7 +114,7 @@ nextButton.addEventListener("click", ()=> {
 function timer(){
     var sec = 60;
     var timer = setInterval(function(){
-        document.getElementById('timer').innerHTML=''+sec;
+        document.getElementById('timer').innerHTML=sec+ " Seconds Left";
         sec--;
         if (sec < 0) {
             clearInterval(timer);
